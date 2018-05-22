@@ -1,0 +1,30 @@
+{
+  "name": "thr-int",
+  "version": "1.0.0",
+  "description": "interactive part of thought render site",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "deriv diggs",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.109",
+    "@types/node": "^10.1.2",
+    "@types/webpack": "^4.4.0",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.3.0",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  },
+  "dependencies": {
+    "@types/node-sass": "^3.10.32",
+    "lodash": "^4.17.10"
+  }
+}
