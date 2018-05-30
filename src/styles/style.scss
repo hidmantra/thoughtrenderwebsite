@@ -1,5 +1,10 @@
 $primary-color: rgb(206, 28, 223);
+$secondary-color: rgb(238, 112, 10);
 
 .helloWorld {
     color: $primary-color;
   }
+
+  .hello {
+    color: $secondary-color;
+}
