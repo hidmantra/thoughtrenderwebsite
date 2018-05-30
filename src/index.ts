@@ -5,7 +5,7 @@ import * as _ from "lodash";
 
 import "bootstrap";
 
-import "./style.css";
+import "../dist/main.css";
 
 
 /**
