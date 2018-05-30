@@ -1,17 +1,17 @@
-//import * as path from 'path';
+
 const path = require('path');
 import * as webpack from 'webpack';
-//import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config: webpack.Configuration = {
     mode: 'production',
-    entry: './src/index.ts',
+    entry: ['./src/index.ts','./src/styles/style.scss'],
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js'
     },
-    module: {
+    module: 
+    {
         rules: [
         {
             test: /\.css$/,      // Match any files that end with ".css"
@@ -20,29 +20,14 @@ const config: webpack.Configuration = {
                 MiniCssExtractPlugin.loader,
                 'css-loader'] // Pipe these files through style-loader upon import
         },
-        /*
         {
-            test: /\.scss$/,
-            use:[{
-                    loader: "style-loader" // creates style nodes from JS strings
-                },{
-                    loader: "css-loader", // translates CSS into CommonJS
-                },{
-                    loader: "sass-loader", // compiles Sass to CSS
-                    options:{
-                        includePaths: ["./src/styles/style.scss"]
-                    }
-                }]
-                   
-         },*/
-         {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/
-          },
+        },
         {
             
-            test: /\.(sass|scss)$/,
+            test: /\.scss$/,
             use: [
                 MiniCssExtractPlugin.loader,
                 {
