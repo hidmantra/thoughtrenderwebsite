@@ -2,6 +2,9 @@
 const path = require('path');
 import * as webpack from 'webpack';
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production';
+
+console.log("mode:>>> ", devMode);
 
 const config: webpack.Configuration = 
 {
@@ -24,8 +27,10 @@ const config: webpack.Configuration =
                 test: /\.css$/, 
                 use: 
                 [
+                    'style-loader',
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    { loader: 'css-loader', options: { importLoader : 1 } }
+                    ,'postcss-loader'
                 ] 
             },
             {
@@ -34,9 +39,12 @@ const config: webpack.Configuration =
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
-                use: [
+                
+                test: /\.(sass|scss)$/,
+                use: 
+                [
                     MiniCssExtractPlugin.loader,
+                    //devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: 
@@ -46,6 +54,7 @@ const config: webpack.Configuration =
                             importLoader: 2
                         }
                     },
+                    "postcss-loader",
                     "sass-loader"
                 ]
                 
@@ -60,8 +69,8 @@ const config: webpack.Configuration =
       [
             new MiniCssExtractPlugin (
             {
-                filename: "[name].css",
-                chunkFilename: "[id].css"
+                filename: devMode ? '[name].css' : '[name].[hash].css',
+                chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
             })
       ],
   };
