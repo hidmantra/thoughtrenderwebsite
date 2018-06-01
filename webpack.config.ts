@@ -14,6 +14,11 @@ const config: webpack.Configuration =
         './src/index.ts',
         './src/styles/style.scss'
     ],
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9000
+      },
     output: 
     {
       path: path.resolve(__dirname, 'dist'),
@@ -58,6 +63,10 @@ const config: webpack.Configuration =
                     "sass-loader"
                 ]
                 
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ['file-loader']
             }
         ],  
     },

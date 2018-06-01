@@ -7,6 +7,8 @@ import "bootstrap";
 
 import "../dist/main.css";
 
+//import logo from './logo_thr_circle.png';
+const logo = require('./')
 
 /**
  * Fires when everything is loaded and ready to GO!
