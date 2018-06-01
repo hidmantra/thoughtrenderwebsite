@@ -8,7 +8,7 @@ import "bootstrap";
 import "../dist/main.css";
 
 //import logo from './logo_thr_circle.png';
-const logo = require('./')
+const Logo = require('./images/logo_thr_circle.png');
 
 /**
  * Fires when everything is loaded and ready to GO!
@@ -30,6 +30,11 @@ function component()
     element.innerHTML = _.join(['Hello', 'webpack w/typscript bout time but no sass :('], ' ');
   
     element.classList.add('hello');
+
+    let myLogo = new Image();
+    myLogo.src = Logo;
+    element.appendChild(myLogo);
+    
     return element;
 }
 
