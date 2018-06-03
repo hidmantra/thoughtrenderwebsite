@@ -1,20 +1,21 @@
 @import "custom-variables";
 
+
 @font-face {
-    font-family: 'TitleFont';
-    src:    url('../fonts/Hattori_Hanzo.otf') format('otf');
+    font-family: TitleFont;
+    src: url('../fonts/Hattori_Hanzo.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
 
-
 .helloWorld {
+    font-family: TitleFont;
     color: $primary-color;
     font-size: 2em;
 }
 
 .hello {
-    font-family: 'TitleFont';
+    font-family: TitleFont;
     font-size: 2em;
     color: $secondary-color;
     background: url('../images/logo_thr_circle.png');
