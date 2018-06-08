@@ -5,9 +5,13 @@ import * as _ from "lodash";
 
 import "bootstrap";
 
-import "../dist/main.css";
+import "../dist/style.css";
+
+import { Print } from "./Print"
 
 const Logo = require('./images/logo_thr_circle.png');
+
+let printMe:Print = new Print();
 
 /**
  * Fires when everything is loaded and ready to GO!
@@ -32,6 +36,12 @@ function component()
     let myLogo = new Image();
     myLogo.src = Logo;
     element.appendChild(myLogo);
+
+    let btn = document.createElement('button');
+    btn.innerHTML = 'Click for console';
+    btn.onclick =  printMe.printer;
+    
+    element.appendChild(btn);
 
     return element;
 }

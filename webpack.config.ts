@@ -9,11 +9,16 @@ console.log("mode:>>> ", devMode);
 const config: webpack.Configuration = 
 {
     mode: 'production',
-    entry: 
-    [
-        './src/index.ts',
-        './src/styles/style.scss'
-    ],
+    entry:[ './src/index.ts', './src/styles/style.scss' ],
+    /*
+    entry: {
+    
+        //'./src/index.ts',
+        app: './src/index.ts',
+        print: './src/Print.ts',
+        style: './src/styles/style.scss'
+        },
+    */
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
@@ -22,7 +27,7 @@ const config: webpack.Configuration =
     output: 
     {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js'
+      filename: '[name].bundle.js'
     },
     module: 
     {
