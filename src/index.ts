@@ -5,8 +5,6 @@ import * as _ from "lodash";
 
 import "bootstrap";
 
-import "../dist/style.css";
-
 import { Print } from "./Print"
 
 const Logo = require('./images/logo_thr_circle.png');

@@ -3,6 +3,7 @@ const path = require('path');
 import * as webpack from 'webpack';
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 console.log("mode:>>> ", devMode);
 
@@ -90,6 +91,12 @@ const config: webpack.Configuration =
                 filename: devMode ? '[name].css' : '[name].[hash].css',
                 chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
             })
+            /*
+            ,new HtmlWebpackPlugin (
+            {
+                title: 'Thought Render'
+            })
+            */
       ],
   };
   
