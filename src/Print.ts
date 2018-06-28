@@ -10,7 +10,6 @@ export class Print
 
     public printer():void
     { 
-       console.log('print called');
-       //return "print was called";
+       console.log('print called while it is hot');
     }
 }
