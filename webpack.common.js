@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+//const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 
@@ -98,7 +97,6 @@ module.exports =
                 filename: devMode ? '[name].css' : '[name].[hash].css',
                 chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
             }),
-            new CleanWebpackPlugin(['dist']), 
             new HtmlWebpackPlugin (
             {
                 title: 'Thought Render',

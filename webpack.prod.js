@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -19,7 +19,8 @@ module.exports = merge(common, {
       logo: './src/THR-logo-bw.png',
       persistentCache: true,
       inject: true,
-    })
+    }),
+    new CleanWebpackPlugin(['dist']), 
     
   ],
   module: 
