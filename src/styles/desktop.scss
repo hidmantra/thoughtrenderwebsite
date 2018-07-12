@@ -1,0 +1,13 @@
+/* Desktop */
+
+@include media-breakpoint-up(md) 
+{
+    .main-title{
+        padding-top: 20px;
+        font-size: 3.5rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    } 
+}

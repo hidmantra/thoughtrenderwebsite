@@ -17,7 +17,8 @@ module.exports = merge(common, {
     
     new FaviconsWebpackPlugin({
       logo: './src/THR-logo-bw.png',
-      persistentCache: true,
+      persistentCache: false,
+      hash: false,
       inject: true,
     }),
     new CleanWebpackPlugin(['dist']), 

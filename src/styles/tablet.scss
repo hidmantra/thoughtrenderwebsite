@@ -1,0 +1,16 @@
+/* Tablet */
+@include media-breakpoint-up(sm) 
+{
+    .main-title{
+        padding-top: 30px;
+        padding-left: auto;
+        padding-right: auto;
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    
+}
