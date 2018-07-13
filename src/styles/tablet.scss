@@ -9,8 +9,14 @@
     }
 
     .section-title {
+        font-family: TitleFont;
         font-size: 2.5rem;
+        margin-bottom: 40px;
+        padding-top: 80px;
     }
 
-    
+    .nav-item{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 }

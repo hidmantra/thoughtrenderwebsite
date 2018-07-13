@@ -84,8 +84,8 @@ function windowResize()
 function windowScroll()
 {
     windowScrollPositon = $(window).scrollTop();
-    //console.log("window scroll: " + windowScrollPositon);
-    if( windowScrollPositon > 200)
+    // show small logo on navbar on small devices
+    if( windowScrollPositon > 150)
     {
         $(myLogo).appendTo( ".navbar-brand" );
     }

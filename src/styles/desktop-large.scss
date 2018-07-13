@@ -1,6 +1,10 @@
 /* Desktop Large */
 @include media-breakpoint-up(lg) {
    
-    
+    .nav-item{
+        padding-right: 25px;
+        padding-left: 25px;
+        text-align: center;
+    }
 
 }

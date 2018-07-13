@@ -48,7 +48,7 @@ section {
 }
 
 .list-group{
-    max-height: 200px;
+    max-height: 300px;
     overflow:scroll;
 }
 
@@ -85,7 +85,9 @@ header{
     }
 
     .section-title {
+        font-family: TitleFont;
         font-size: 2rem;
+        margin-bottom: 30px;
     }
 
 }
