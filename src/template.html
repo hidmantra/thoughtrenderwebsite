@@ -24,8 +24,14 @@
                 <li class="nav-item">
                     <a class="nav-link"  href="#technology">Technologies</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link"  href="#portfolio-top">Portfolio</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  href="#" id="navbardrop" data-toggle="dropdown">Portfolio</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#multimedia">Multi-Media</a>
+                        <a class="dropdown-item" href="#illustrations">Illustrations</a>
+                        <a class="dropdown-item" href="#photography">Photography</a>
+                        <a class="dropdown-item" href="#music">Music</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="#resume-top">Resume</a>
@@ -36,7 +42,7 @@
           </ul>
         </div>
     </nav>
-    <section id= "overview-top"  class="container-fluid">
+    <section id= "overview-top"  class="container">
       <div class="section-title text-center">Overview</div>
         <p>My name is Deriv Diggs and I'm the founder and chief engineer of Thought Render. I've been creating websites, RIAs, kiosks, desktop applications, games, and mobile applications using Adobe AIR/Flash/Flex/Flash Builder/HTML5/CSS3/Javascript. Twelve years ago, before focusing on development, I was a senior designer at Grey Interactive (at the time the interactive division of Grey Advertising) in New York City. Therefore, in addition to my skills as a programmer, I'm extremely proficient with the entire Adobe CS suite of programs especially Photoshop, Illustrator, Flash and Dreamweaver. I won the Adobe Site of the Day award for April 11, 2009.
         </p>
@@ -44,18 +50,20 @@
         <p>In addition to front end technologies, I have experience programming php, Python, and mySQL, and have extensive experience building dynamic projects that get their content from a variety of backend technologies. Please find my resume, portfolio, and contact information by scrolling down or using the menu at the top.
         </p>
     </section>
-    <section id="technology" class="container-fluid">
+    <section id="technology" class="container">
       <div class="section-title text-center">Technologies</div>
-      <div class="row">
+      <div id="technology-table" class="row">
             <div class="col-sm">
                 <div class="technology-title text-center">Languages</div>
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action">ActionScript 2</a>
                     <a href="#" class="list-group-item list-group-item-action">ActionScript 3</a>
                     <a href="#" class="list-group-item list-group-item-action">Javascript</a>
+                    <a href="#" class="list-group-item list-group-item-action">ECMA 5</a>
                     <a href="#" class="list-group-item list-group-item-action">TypeScript</a>
                     <a href="#" class="list-group-item list-group-item-action">HTML</a>
                     <a href="#" class="list-group-item list-group-item-action">CSS3</a>
+                    <a href="#" class="list-group-item list-group-item-action">Python</a>
                 </div> 
             </div>
             <div class="col-sm">
@@ -77,10 +85,49 @@
                 </div>
         </div> 
     </section>
-    <section id="portfolio-top" class="container-fluid">
-      <div class="section-title text-center">Portfolio</div>
+    <section id="portfolio-top" class="container">
+        <div class="section-title text-center">Portfolio</div>
+        <div class="medium-holder">
+            <div class="medium-title">Multimedia</div>
+            <div class="portfolio-medium">
+                <div id="multi-thumbs" class="thumb-strip"></div>
+            </div>
+        </div>
+        <!-- The Modal -->
+<div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              Modal body..
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+        <div class="portfolio-medium">
+                <div class="medium-title">Illustrations</div>
+           </div>
+           <div class="portfolio-medium">
+                <div class="medium-title">Photography</div>
+           </div>
+           <div class="portfolio-medium">
+                <div class="medium-title">Music</div>
+           </div>
     </section>
-    <section id="resume-top" class="container-fluid">
+    <section id="resume-top" class="container">
       <div class="section-title text-center">Resume</div>
           
             <p><a href="http://thoughtrender.com/interactive/docs/Resume_of_Deriv_Diggs.pdf">You can click here to download a PDF file containing additonal experience.</a><p>
@@ -306,7 +353,7 @@
 <!-- end jobs -->                    
             </div>
     </section>
-    <section id="contact-top" class="container-fluid">
+    <section id="contact-top" class="container">
       <div class="section-title text-center">Contact Information</div>
       
             <div class='underholder'>

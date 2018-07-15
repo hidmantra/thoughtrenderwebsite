@@ -11,12 +11,26 @@
     .section-title {
         font-family: TitleFont;
         font-size: 2.5rem;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         padding-top: 80px;
+    }
+
+    .technology-title {
+        font-size: 1.5rem;
+        font-style: italic;
+        color: white;
     }
 
     .nav-item{
         padding-right: 15px;
         padding-left: 15px;
+    }
+
+    .medium-title{
+        font-size: 1.2rem;
+    }
+
+    #technology-table{
+        height: 400px;;
     }
 }

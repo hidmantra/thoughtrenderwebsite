@@ -39,10 +39,25 @@ body {
 section {
     border-style: solid;
     border-width: 1px;
-    margin: 20px;
-    border-color: rgb(240, 228, 245);
+    margin: 30px;
+    border-color: rgb(148, 149, 168);
+    background: rgb(220, 221, 236);
 }
 
+.portfolio-medium{
+    margin: 20px;
+    /*height: 250px;*/
+    padding: 20px;
+    background-color: rgb(232, 233, 243);
+    border-color: rgb(148, 149, 168);
+
+}
+
+
+
+.col-sm{
+    background-color: rgb(115, 117, 148);
+}
 #logo-holder {
     display: inline-block;
 }
@@ -51,9 +66,12 @@ section {
     max-height: 300px;
     overflow:scroll;
 }
-
-
 /*
+.container-fluid{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .section-title {
     font-size: 1rem;
     color: $primary-color;
@@ -88,6 +106,21 @@ header{
         font-family: TitleFont;
         font-size: 2rem;
         margin-bottom: 30px;
+        /*padding-top: 180px;*/
+    }
+
+    .technology-title {
+        font-size: 1.2rem;
+        font-style: italic;
+        color: white;
+    }
+
+    .medium-title{
+        font-size: 1rem;
+    }
+
+    #technology-table{
+        height: 800px;;
     }
 
 }

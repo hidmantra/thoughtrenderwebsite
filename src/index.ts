@@ -17,6 +17,9 @@ const Logo = require('./images/logo_thr_circle.png');
 
 let headerLogo = new Image();
 
+const AdenThumb = require('./images/aden_large_thumb400.jpg');
+
+
 let printMe:Print = new Print();
 
 
@@ -44,6 +47,13 @@ document.addEventListener("DOMContentLoaded", function(event):void
     headerLogo.src = Logo;
     headerLogo.width = 120;
 
+    let adenThumb = new Image();
+    adenThumb.src = AdenThumb;
+    adenThumb.width = 200;
+     $(adenThumb).appendTo('#multi-thumbs');
+
+     adenThumb.addEventListener("click", launchAden);
+
     //$(myLogo).appendTo( ".navbar-brand" );
 
     $(headerLogo).appendTo("#logo-holder");
@@ -59,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
 
 });
+
+function launchAden()
+{
+    $("#myModal").modal();
+}
 
 window.addEventListener("resize", windowResize);
 
