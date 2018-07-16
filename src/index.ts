@@ -7,6 +7,8 @@ import "bootstrap";
 
 import { Print } from "./print";
 
+import { GalleryStripModal } from "./GalleryStripModal";
+
 //import './styles/style.scss';
 
 const AdenVideoDesktop = require('./video/adendesktop.mp4');
@@ -24,6 +26,7 @@ const AdenThumb = require('./images/aden_large_thumb400.jpg');
 
 
 let printMe:Print = new Print();
+
 
 
 
@@ -65,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");
+
+    let galleryStripModal:GalleryStripModal = new GalleryStripModal();
+    let multimediaGalleryHTML:string = galleryStripModal.getComponentHTML();
+    $('#medium-holder').html(multimediaGalleryHTML);
 
 });
 

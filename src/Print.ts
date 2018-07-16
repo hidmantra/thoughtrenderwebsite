@@ -1,6 +1,4 @@
-/**
- * Fires when everything is loaded and ready to GO!
- */
+
 export class Print
 {
     constructor()
