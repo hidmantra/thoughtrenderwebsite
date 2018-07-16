@@ -55,43 +55,16 @@ document.addEventListener("DOMContentLoaded", function(event):void
     adenThumb.width = 200;
     $(adenThumb).appendTo('#multi-thumbs');
 
-     //adenThumb.addEventListener("click", launchAden);
      let temp:string="hi";
      adenThumb.addEventListener("click", function(){ launchAden(temp) });
 
-    //let adenVideo = new VideoTrack();
 
     let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
     $('.modal-body').html(htmlText);
 
-    /*
-    <video loop autoplay controls>
-    <source src="./aden.mp4" type="video/mp4">
-    </video>
-    */
-   // $("<p>hello</p>").appendTo("#test");
-    //$("#test").append("<p>hello</p>");
-
-    /*
-    $(".modal-body").append("<video width=\'320\' height=\'240\' autoplay\>\<source src=adenVideo type=\"video/mp4\"\>\<source src=\"movie.ogg\" type=\"video/ogg\"\>\</video>");
- 
-   
-        $(".modal-body").append("<video width=\'320\' height=\'240\' autoplay\>\<source src=\"movie.mp4\" type=\"video/mp4\"\>\<source src=\"movie.ogg\" type=\"video/ogg\"\>\</video>");
-    */
-
-    //$(myLogo).appendTo( ".navbar-brand" );
 
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");
-
-    //$(headerLogo).appendTo("#logo-holder");
-
-    /*
-    let element = component();
-    document.body.appendChild(element);
-    document.body.appendChild(componentO());
-    */
-
 
 });
 
@@ -109,16 +82,16 @@ function windowResize()
 {
     console.log("window width: " + window.innerWidth);
     console.log("window height: " + window.innerHeight);
-    /*
-    if(window.innerWidth < 360)
+    
+    if(window.innerWidth < 420)
     {
-        headerLogo.width = 120;
+        myLogo.width = 40;
     }
     else
     {
-        headerLogo.width = 120;
+        myLogo.width = 50;
     }
-    */
+    
 }
 
 

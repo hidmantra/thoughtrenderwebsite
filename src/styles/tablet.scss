@@ -21,16 +21,21 @@
         color: white;
     }
 
-    .nav-item{
-        padding-right: 15px;
-        padding-left: 15px;
+    .nav-item {
+        padding-right: 5px;
+        padding-left: 5px;
     }
 
-    .medium-title{
+    .nav-item:last-child {
+        padding-right: 0;
+        padding-left: 10px;
+    }
+
+    .medium-title {
         font-size: 1.2rem;
     }
 
-    #technology-table{
+    #technology-table {
         height: 400px;;
     }
 }
