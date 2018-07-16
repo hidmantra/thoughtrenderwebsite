@@ -9,6 +9,9 @@ import { Print } from "./print";
 
 //import './styles/style.scss';
 
+const AdenVideoDesktop = require('./video/adendesktop.mp4');
+const AdenVideoDesktopLg = require('./video/adendesktoplg.mp4');
+
 const SimpleLogo = require('./images/THR-white.png');
 
 let myLogo = new Image();
@@ -50,9 +53,29 @@ document.addEventListener("DOMContentLoaded", function(event):void
     let adenThumb = new Image();
     adenThumb.src = AdenThumb;
     adenThumb.width = 200;
-     $(adenThumb).appendTo('#multi-thumbs');
+    $(adenThumb).appendTo('#multi-thumbs');
 
      adenThumb.addEventListener("click", launchAden);
+
+    //let adenVideo = new VideoTrack();
+
+    let htmlText:string="<video width='600' loop autoplay controls><source src='./adendesktop.mp4' type='video/mp4'></video>";
+    $('.modal-body').html(htmlText);
+
+    /*
+    <video loop autoplay controls>
+    <source src="./aden.mp4" type="video/mp4">
+    </video>
+    */
+   // $("<p>hello</p>").appendTo("#test");
+    //$("#test").append("<p>hello</p>");
+
+    /*
+    $(".modal-body").append("<video width=\'320\' height=\'240\' autoplay\>\<source src=adenVideo type=\"video/mp4\"\>\<source src=\"movie.ogg\" type=\"video/ogg\"\>\</video>");
+ 
+   
+        $(".modal-body").append("<video width=\'320\' height=\'240\' autoplay\>\<source src=\"movie.mp4\" type=\"video/mp4\"\>\<source src=\"movie.ogg\" type=\"video/ogg\"\>\</video>");
+    */
 
     //$(myLogo).appendTo( ".navbar-brand" );
 
