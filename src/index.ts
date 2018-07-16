@@ -55,11 +55,13 @@ document.addEventListener("DOMContentLoaded", function(event):void
     adenThumb.width = 200;
     $(adenThumb).appendTo('#multi-thumbs');
 
-     adenThumb.addEventListener("click", launchAden);
+     //adenThumb.addEventListener("click", launchAden);
+     let temp:string="hi";
+     adenThumb.addEventListener("click", function(){ launchAden(temp) });
 
     //let adenVideo = new VideoTrack();
 
-    let htmlText:string="<video width='600' loop autoplay controls><source src='./adendesktop.mp4' type='video/mp4'></video>";
+    let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
     $('.modal-body').html(htmlText);
 
     /*
@@ -93,8 +95,9 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
 });
 
-function launchAden()
+function launchAden(a:string)
 {
+    console.log("tmp is" + a);
     $("#myModal").modal();
 }
 
