@@ -5,7 +5,6 @@ import * as _ from "lodash";
 
 import "bootstrap";
 
-import { Print } from "./print";
 
 import { GalleryStripModal } from "./GalleryStripModal";
 
@@ -22,10 +21,9 @@ const Logo = require('./images/logo_thr_circle.png');
 
 let headerLogo = new Image();
 
-const AdenThumb = require('./images/aden_large_thumb400.jpg');
+//const AdenThumb = require('./images/aden_large_thumb400.jpg');
 
 
-let printMe:Print = new Print();
 
 
 
@@ -52,34 +50,33 @@ document.addEventListener("DOMContentLoaded", function(event):void
     
     headerLogo.src = Logo;
     headerLogo.width = 120;
-
+    /*
     let adenThumb = new Image();
     adenThumb.src = AdenThumb;
     adenThumb.width = 200;
     $(adenThumb).appendTo('#multi-thumbs');
-
+    
      let temp:string="hi";
      adenThumb.addEventListener("click", function(){ launchAden(temp) });
-
+    
 
     let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
     $('.modal-body').html(htmlText);
-
+*/
 
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");
 
     let galleryStripModal:GalleryStripModal = new GalleryStripModal();
     let multimediaGalleryHTML:string = galleryStripModal.getComponentHTML();
-    $('#medium-holder').html(multimediaGalleryHTML);
+    //$('#medium-holder').html(multimediaGalleryHTML);
+    $(multimediaGalleryHTML).insertAfter('.medium-holder');
+    //$('<p>hi again</p>').insertAfter('.medium-holder');
+
 
 });
 
-function launchAden(a:string)
-{
-    console.log("tmp is" + a);
-    $("#myModal").modal();
-}
+
 
 window.addEventListener("resize", windowResize);
 
@@ -87,8 +84,8 @@ window.addEventListener("scroll", windowScroll);
 
 function windowResize()
 {
-    console.log("window width: " + window.innerWidth);
-    console.log("window height: " + window.innerHeight);
+    //console.log("window width: " + window.innerWidth);
+    //console.log("window height: " + window.innerHeight);
     
     if(window.innerWidth < 420)
     {
@@ -119,18 +116,20 @@ function windowScroll()
     }
 }
 
-
+/*
 function component() 
 {
     let element = document.createElement('div');
     element.innerHTML = _.join(['Hello', 'webpack w/typscript and now with live reload'], ' ');
   
     element.classList.add('hello');
+    */
     /*
     let myLogo = new Image();
     myLogo.src = Logo;
     element.appendChild(myLogo);
     */
+   /*
     let btn = document.createElement('button');
     btn.innerHTML = 'Click for console';
     btn.onclick =  printMe.printer;
@@ -160,4 +159,5 @@ if (module.hot) {
          //printMe.printer();
        })
 }
+*/
      

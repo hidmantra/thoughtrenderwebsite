@@ -1,5 +1,12 @@
+import * as $ from "jquery";
+const AdenVideoDesktop = require('./video/adendesktop.mp4');
+const AdenVideoDesktopLg = require('./video/adendesktoplg.mp4');
+const AdenThumb = require('./images/aden_large_thumb400.jpg');
+
 export class GalleryStripModal
 {
+    
+
     constructor()
     {
         console.log('GSM class built');
@@ -7,8 +14,29 @@ export class GalleryStripModal
 
     public getComponentHTML():string
     {
-        let strip:string = "<p>hello</p><h1>gurl</h1>";
+        let titleElement:string = "<div class='medium-title'>Multimedia</div>";
+        let holderString:string = "<div class='portfolio-medium'><div id='multi-thumbs' class='thumb-strip'>";
         
+        let adenThumb = new Image();
+        adenThumb.src = AdenThumb;
+        adenThumb.width = 200;
+        //convert element to string to add to component html string
+        let tmpElement:HTMLElement = document.createElement("div");
+        $(adenThumb).appendTo(tmpElement);
+        
+        let tmpThumb:string = tmpElement.innerHTML;
+        let closeString:string = "</div></div></div>";
+        
+        let strip:string = titleElement + holderString + tmpThumb + closeString;
+        
+
+       // let temp:string="hi";
+       // adenThumb.addEventListener("click", function(){ launchAden(temp) });
+        adenThumb.addEventListener("click", this.launchAden);
+
+        let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
+        $('.modal-body').html(htmlText);
+        console.log("img html: " + tmpElement.innerHTML);
         return strip;
     }
 
@@ -18,6 +46,10 @@ export class GalleryStripModal
 
         return modalHTML;
     }
+
+    private launchAden():void
+    {
+        console.log("tmp is");
+        $("#myModal").modal();
+    }
 }
-
-

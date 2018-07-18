@@ -79,6 +79,10 @@ module.exports =
                 use: ['file-loader']
             },
             {
+                test: /\.json$/,
+                loader: 'json-loader'
+            },
+            {
                 test: /\.(mov|mp4)$/,
                 use: 
                 [
