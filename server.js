@@ -1,6 +1,6 @@
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
+const express = require('express/index.js');
+const webpack = require('webpack/index.js');
+const webpackDevMiddleware = require('webpack-dev-middleware/index.js');
 
 const app = express();
 const config = require('./webpack.config.js');

@@ -6,12 +6,9 @@ import * as _ from "lodash";
 import "bootstrap";
 
 
-import { GalleryStripModal } from "./GalleryStripModal";
+import { GalleryStripModal } from "./components/gallery_strip_modal/GalleryStripModal";
 
-//import './styles/style.scss';
 
-const AdenVideoDesktop = require('./video/adendesktop.mp4');
-const AdenVideoDesktopLg = require('./video/adendesktoplg.mp4');
 
 const SimpleLogo = require('./images/THR-white.png');
 
@@ -21,7 +18,6 @@ const Logo = require('./images/logo_thr_circle.png');
 
 let headerLogo = new Image();
 
-//const AdenThumb = require('./images/aden_large_thumb400.jpg');
 
 
 
@@ -67,16 +63,17 @@ document.addEventListener("DOMContentLoaded", function(event):void
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");
 
-    let galleryStripModal:GalleryStripModal = new GalleryStripModal();
-    let multimediaGalleryHTML:string = galleryStripModal.getComponentHTML();
-    //$('#medium-holder').html(multimediaGalleryHTML);
-    $(multimediaGalleryHTML).insertAfter('.medium-holder');
-    //$('<p>hi again</p>').insertAfter('.medium-holder');
+    addComponents();
 
 
 });
 
-
+function addComponents():void
+{
+    let galleryStripModal:GalleryStripModal = new GalleryStripModal();
+    let multimediaGalleryHTML:string = galleryStripModal.getComponentHTML();
+    $(multimediaGalleryHTML).insertAfter('.medium-holder');
+}
 
 window.addEventListener("resize", windowResize);
 
@@ -116,47 +113,14 @@ function windowScroll()
     }
 }
 
+
 /*
-function component() 
-{
-    let element = document.createElement('div');
-    element.innerHTML = _.join(['Hello', 'webpack w/typscript and now with live reload'], ' ');
-  
-    element.classList.add('hello');
-    */
-    /*
-    let myLogo = new Image();
-    myLogo.src = Logo;
-    element.appendChild(myLogo);
-    */
-   /*
-    let btn = document.createElement('button');
-    btn.innerHTML = 'Click for console';
-    btn.onclick =  printMe.printer;
-    
-    element.appendChild(btn);
-
-    return element;
-}
-
-function componentO() 
-{
-    let elementO = document.createElement('div');
-    elementO.innerHTML = _.join(['Hello', 'SASS with live edits?'], ' ');
-  
-    elementO.classList.add('helloWorld');
-    return elementO;
-}
-
-
-
 if (module.hot) {
-       module.hot.accept('./print.ts', function() {
-         console.log('Accepting the updated printMe module!');
+       module.hot.accept('./GalleryStripModal.ts', function() {
+         console.log('Accepting the updated GSM module!');
          document.body.removeChild(element);
-         element = component();
+         element = addComponents();
          document.body.appendChild(element);
-         //printMe.printer();
        })
 }
 */
