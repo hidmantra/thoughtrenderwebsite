@@ -10,7 +10,7 @@ export class GalleryStripModal
 {
     private tmpJson = {
 
-        "component-title" : "Multimedia",
+        "componentTitle" : "Multimedia",
         "job_vos" : [
             {
                 "job-title" : "Aden",
