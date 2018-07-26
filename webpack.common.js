@@ -101,10 +101,7 @@ module.exports =
     {
         extensions: [ '.tsx', '.ts', '.js' ],
         plugins: [
-            new TsConfigPathsPlugin(),
-            
-                
-            
+            new TsConfigPathsPlugin()
         ]
     },
     plugins: 
@@ -120,7 +117,8 @@ module.exports =
                 template: './src/template.html'
             }),
             new webpack.NamedModulesPlugin(),
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.ContextReplacementPlugin(/typedjson-npm/, 'typed-json.js')
       ],
   };
  

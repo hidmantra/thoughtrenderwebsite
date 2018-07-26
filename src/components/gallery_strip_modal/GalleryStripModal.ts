@@ -1,12 +1,32 @@
 import * as $ from "jquery";
 //const AdenVideoDesktop = require('./video/adendesktop.mp4');
-const AdenVideoDesktop = require('./video/adendesktop.mp4')
+const AdenVideoDesktop = require('./video/adendesktop.mp4');
 const AdenVideoDesktopLg = require('./video/adendesktoplg.mp4');
 const AdenThumb = require('./images/aden_large_thumb400.jpg');
+import {JsonObject, JsonMember, TypedJSON} from 'typedjson-npm';
+import { GSM_vo } from "./GSM_vo";
 
 export class GalleryStripModal
 {
-    
+    private tmpJson = {
+
+        "component-title" : "Multimedia",
+        "job_vos" : [
+            {
+                "job-title" : "Aden",
+                "thumb-path" : "AdenThumb",
+                "video-path" : "./adendesktop.mp4"
+            },
+            {
+                "job-title" : "Aden2",
+                "thumb-path" : "AdenThumb2",
+                "video-path" : "./adendesktop2.mp4"
+            }
+        ]
+    }
+
+    private gsm_vo:GSM_vo = new GSM_vo();
+     
 
     constructor()
     {
@@ -15,6 +35,8 @@ export class GalleryStripModal
 
     public getComponentHTML():string
     {
+        this.gsm_vo = TypedJSON.parse(TypedJSON.stringify(this.tmpJson) , GSM_vo);
+        console.log("is vo: " + this.gsm_vo.componentTitle);
         let titleElement:string = "<div class='medium-title'>Multimedia</div>";
         let holderString:string = "<div class='portfolio-medium'><div id='multi-thumbs' class='thumb-strip'>";
         
