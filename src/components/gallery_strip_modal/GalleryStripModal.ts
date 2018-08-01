@@ -38,7 +38,128 @@ export class GalleryStripModal
                 "position" : 4,
                 "thumbPath" : "gsm_assets/images/sawaya2_large_thumb400.jpg",
                 "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "GoFur Help",
+                "position" : 5,
+                "thumbPath" : "gsm_assets/images/gofur_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Pantene 1",
+                "position" : 6,
+                "thumbPath" : "gsm_assets/images/pantene1_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Evian 1",
+                "position" : 7,
+                "thumbPath" : "gsm_assets/images/evian1_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "MOMA",
+                "position" : 8,
+                "thumbPath" : "gsm_assets/images/moma_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Evian 2",
+                "position" : 9,
+                "thumbPath" : "gsm_assets/images/evian2_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "KOHLS",
+                "position" : 10,
+                "thumbPath" : "gsm_assets/images/kohls_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Nortel 1",
+                "position" : 11,
+                "thumbPath" : "gsm_assets/images/nortel1_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Pantene 2",
+                "position" : 12,
+                "thumbPath" : "gsm_assets/images/pantene2_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Nortel 2",
+                "position" : 13,
+                "thumbPath" : "gsm_assets/images/nortel2_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Trump Place 1",
+                "position" : 14,
+                "thumbPath" : "gsm_assets/images/trump1_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Trump Place 2",
+                "position" : 15,
+                "thumbPath" : "gsm_assets/images/trump2_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Synnex",
+                "position" : 16,
+                "thumbPath" : "gsm_assets/images/synnex_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Plavix",
+                "position" : 17,
+                "thumbPath" : "gsm_assets/images/plavix_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Sawaya Segalis 3",
+                "position" : 18,
+                "thumbPath" : "gsm_assets/images/sawaya3_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "HPV 1",
+                "position" : 19,
+                "thumbPath" : "gsm_assets/images/hpv1_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "HPV 2",
+                "position" : 20,
+                "thumbPath" : "gsm_assets/images/hpv2_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Carestream",
+                "position" : 21,
+                "thumbPath" : "gsm_assets/images/carestream_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "GTS",
+                "position" : 22,
+                "thumbPath" : "gsm_assets/images/gts_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "DLJ",
+                "position" : 23,
+                "thumbPath" : "gsm_assets/images/dlj_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "EISAI",
+                "position" : 24,
+                "thumbPath" : "gsm_assets/images/eisai_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
             }
+            
         ]
     }
 
