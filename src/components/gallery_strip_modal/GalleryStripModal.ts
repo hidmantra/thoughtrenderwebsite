@@ -2,9 +2,10 @@ import * as $ from "jquery";
 //const AdenVideoDesktop = require('./video/adendesktop.mp4');
 const AdenVideoDesktop = require('./video/adendesktop.mp4');
 const AdenVideoDesktopLg = require('./video/adendesktoplg.mp4');
-const AdenThumb = require('./images/aden_large_thumb400.jpg');
+const TmpThumb = require('./images/aden_large_thumb400.jpg');
 import {JsonObject, JsonMember, TypedJSON} from 'typedjson-npm';
 import { GSM_vo } from "./GSM_vo";
+import { Job_vo } from "./Job_vo";
 
 export class GalleryStripModal
 {
@@ -12,23 +13,37 @@ export class GalleryStripModal
 
         "componentTitle" : "Multimedia",
         "componentID" : 1,
+        "thumbWidth" : 200,
         "job_vos" : [
             {
                 "jobTitle" : "Aden",
                 "position" : 1,
-                "thumbPath" : "AdenThumb",
+                "thumbPath" : "gsm_assets/images/aden_large_thumb400.jpg",
                 "videoPath" : "./adendesktop.mp4"
             },
             {
-                "jobTitle" : "Aden2",
+                "jobTitle" : "Levaquin",
                 "position" : 2,
-                "thumbPath" : "AdenThumb2",
+                "thumbPath" : "gsm_assets/images/levaquin_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Sawaya Segalis 1",
+                "position" : 3,
+                "thumbPath" : "gsm_assets/images/sawaya1_large_thumb400.jpg",
+                "videoPath" : "./adendesktop2.mp4"
+            },
+            {
+                "jobTitle" : "Sawaya Segalis 2",
+                "position" : 4,
+                "thumbPath" : "gsm_assets/images/sawaya2_large_thumb400.jpg",
                 "videoPath" : "./adendesktop2.mp4"
             }
         ]
     }
 
     private gsm_vo:GSM_vo = new GSM_vo();
+    private thumbWidth:number;
      
 
     constructor()
@@ -44,6 +59,9 @@ export class GalleryStripModal
 
         //first handle data for overall component
 
+        //get the width for thumb nails
+        this.thumbWidth = this.gsm_vo.thumbWidth;
+
         //create the label for the component
         let titleElement:string = "<div class='medium-title'>" +this.gsm_vo.componentTitle + "</div>";
 
@@ -51,31 +69,52 @@ export class GalleryStripModal
         let holderString:string = "<div class='portfolio-medium'><div id='GSM-" + this.gsm_vo.componentID +"' class='thumb-strip'>";
         
         //grab Job_vos out and build each thumb and corresponding popup modal data
-        for(let tmpJobVO of this.gsm_vo.job_vos)
+        let sortedTmpJobVO:Array<Job_vo> = this.gsm_vo.job_vos.sort(function(obj1, obj2){return obj1.position - obj2.position;})
+        let thumbsHtml:string = "";
+
+        for(let tmpJobVO of sortedTmpJobVO)
         {
             console.log("titles: " + tmpJobVO.jobTitle);
+            //let AdenThumb = require(tmpJobVO.thumbPath);
+            let tPath:string = tmpJobVO.thumbPath;
+            console.log("extracted thumb path: " + tPath);
+            //const TmpThumb = import {tPath} from "./images";
+            //(async () => { const TmpThumb = await import(tPath);}) ();
+            const pathToCats = require
+            
+            
+            let tmpElement:HTMLElement = document.createElement("a");
+           
+          
+            let tmpThumbHTML:string = "<img src='" + tPath + "' width='" + this.thumbWidth +"'></img>";
+            console.log("image html: " + tmpThumbHTML);
+            //$('#tholder').on('click' , this.launchAden );
+            let tmt:Array<Node> = $.parseHTML(tmpThumbHTML);
+            //tmpElement.addEventListener("click", () => { this.launchAden("test")});
+            $(tmt).appendTo(tmpElement);
+            //$(tmt).click(this.launchAden);
+            //tmpThumbHTML = $(tmt).prop('outerHTML');
+
+            //thumbsHtml += tmpThumbHTML;
+            thumbsHtml += $(tmpElement).prop('innerHTML');
+           
+
+            let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
+            $('.modal-body').html(htmlText);
+            
+            
         }
-        
-        let adenThumb = new Image();
-        adenThumb.src = AdenThumb;
-        adenThumb.width = 200;
-        //convert element to string to add to component html string
-        let tmpElement:HTMLElement = document.createElement("div");
-        $(adenThumb).appendTo(tmpElement);
-        
-        let tmpThumb:string = tmpElement.innerHTML;
+        $('img').css('padding', '20px');
+        let trythis:HTMLElement = document.createElement('div');
+       // $('#thumb-strip').css('padding', '20px');
         let closeString:string = "</div></div></div>";
         
-        let strip:string = titleElement + holderString + tmpThumb + closeString;
+        let strip:string = titleElement + holderString + thumbsHtml + closeString;
         
 
        // let temp:string="hi";
        // adenThumb.addEventListener("click", function(){ launchAden(temp) });
-        adenThumb.addEventListener("click", this.launchAden);
-
-        let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
-        $('.modal-body').html(htmlText);
-        console.log("img html: " + tmpElement.innerHTML);
+        
         return strip;
     }
 
@@ -92,9 +131,9 @@ export class GalleryStripModal
         return modalHTML;
     }
 
-    private launchAden():void
+    public launchAden(value:string):void
     {
-        console.log("tmp is");
+        console.log("tmp is " + value);
         $("#myModal").modal();
     }
 }

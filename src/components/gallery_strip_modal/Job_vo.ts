@@ -5,7 +5,7 @@ import 'reflect-metadata';
 export class Job_vo
 {
     private _jobTitle:string;
-    private _position:Number;
+    private _position:number;
     private _thumbPath:string;
     private _videoPath:string;
     //
@@ -27,11 +27,11 @@ export class Job_vo
     }
 
     @JsonMember({ type:Number})
-    public get position():Number{
+    public get position():number{
         return this._position;
     }
    
-    public set position(value:Number){
+    public set position(value:number){
         this._position = value;
     }
 
