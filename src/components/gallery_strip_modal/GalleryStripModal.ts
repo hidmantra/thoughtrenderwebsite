@@ -11,16 +11,19 @@ export class GalleryStripModal
     private tmpJson = {
 
         "componentTitle" : "Multimedia",
+        "componentID" : 1,
         "job_vos" : [
             {
-                "job-title" : "Aden",
-                "thumb-path" : "AdenThumb",
-                "video-path" : "./adendesktop.mp4"
+                "jobTitle" : "Aden",
+                "position" : 1,
+                "thumbPath" : "AdenThumb",
+                "videoPath" : "./adendesktop.mp4"
             },
             {
-                "job-title" : "Aden2",
-                "thumb-path" : "AdenThumb2",
-                "video-path" : "./adendesktop2.mp4"
+                "jobTitle" : "Aden2",
+                "position" : 2,
+                "thumbPath" : "AdenThumb2",
+                "videoPath" : "./adendesktop2.mp4"
             }
         ]
     }
@@ -35,10 +38,23 @@ export class GalleryStripModal
 
     public getComponentHTML():string
     {
+        //convert json object into a GSM_vo
         this.gsm_vo = TypedJSON.parse(TypedJSON.stringify(this.tmpJson) , GSM_vo);
-        console.log("is vo: " + this.gsm_vo.componentTitle);
-        let titleElement:string = "<div class='medium-title'>Multimedia</div>";
-        let holderString:string = "<div class='portfolio-medium'><div id='multi-thumbs' class='thumb-strip'>";
+
+
+        //first handle data for overall component
+
+        //create the label for the component
+        let titleElement:string = "<div class='medium-title'>" +this.gsm_vo.componentTitle + "</div>";
+
+        //append compoent id to div id to target current component if their are multiple GSMs
+        let holderString:string = "<div class='portfolio-medium'><div id='GSM-" + this.gsm_vo.componentID +"' class='thumb-strip'>";
+        
+        //grab Job_vos out and build each thumb and corresponding popup modal data
+        for(let tmpJobVO of this.gsm_vo.job_vos)
+        {
+            console.log("titles: " + tmpJobVO.jobTitle);
+        }
         
         let adenThumb = new Image();
         adenThumb.src = AdenThumb;

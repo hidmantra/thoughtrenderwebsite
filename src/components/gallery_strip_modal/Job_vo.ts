@@ -1,21 +1,23 @@
 import { JsonObject, JsonMember } from "typedjson-npm";
 import 'reflect-metadata';
 
+
 export class Job_vo
 {
-    @JsonMember
     private _jobTitle:string;
-    @JsonMember
+    private _position:Number;
     private _thumbPath:string;
-    @JsonMember 
     private _videoPath:string;
     //
     constructor(){
+        console.log("Job_vo instantiated");
         this._jobTitle = undefined;
+        this._position = undefined;
         this._thumbPath = undefined;
         this._videoPath = undefined;
     }
 
+    @JsonMember({type:String})
     get jobTitle():string{
         return this._jobTitle;
     }
@@ -24,6 +26,16 @@ export class Job_vo
         this._jobTitle = value;
     }
 
+    @JsonMember({ type:Number})
+    public get position():Number{
+        return this._position;
+    }
+   
+    public set position(value:Number){
+        this._position = value;
+    }
+
+    @JsonMember({type:String})
     get thumbPath():string{
         return this._thumbPath;
     }
@@ -32,7 +44,12 @@ export class Job_vo
         this.thumbPath = value;
     }
 
+    @JsonMember({type:String})
     get videoPath():string{
         return this._videoPath
+    }
+
+    set videoPath(value:string){
+        this._videoPath = value;
     }
 }

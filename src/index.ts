@@ -46,19 +46,6 @@ document.addEventListener("DOMContentLoaded", function(event):void
     
     headerLogo.src = Logo;
     headerLogo.width = 120;
-    /*
-    let adenThumb = new Image();
-    adenThumb.src = AdenThumb;
-    adenThumb.width = 200;
-    $(adenThumb).appendTo('#multi-thumbs');
-    
-     let temp:string="hi";
-     adenThumb.addEventListener("click", function(){ launchAden(temp) });
-    
-
-    let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
-    $('.modal-body').html(htmlText);
-*/
 
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");

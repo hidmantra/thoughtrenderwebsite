@@ -12,12 +12,17 @@ import {Job_vo} from './Job_vo';
 export class GSM_vo
 {
     private _componentTitle:string;
-    private _job_vos:Job_vo[];
+    private _componentID:Number;
+    private _position:Number;
+    //private _job_vos:Job_vo[];
+    private _job_vos:Array<Job_vo>;
     private _job_vo:Job_vo;
 
     constructor(){
         console.log('gsm vo instantiated');
         this._componentTitle = undefined;
+        this._componentID = undefined;
+        this._position = undefined;
         this._job_vos = undefined;
         this._job_vo = undefined;
     }
@@ -28,6 +33,15 @@ export class GSM_vo
    
     public set componentTitle(value:string){
         this._componentTitle = value;
+    }
+
+    @JsonMember({ type:Number})
+    public get componentID():Number{
+        return this._componentID;
+    }
+   
+    public set componentID(value:Number){
+        this._componentID= value;
     }
 
     @JsonMember({type:Array, elements:Job_vo})
