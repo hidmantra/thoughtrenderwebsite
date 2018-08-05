@@ -19,6 +19,7 @@ const Logo = require('./images/logo_thr_circle.png');
 let headerLogo = new Image();
 
 
+let _mediumHolder:HTMLElement;
 
 
 
@@ -35,9 +36,8 @@ let windowScrollPositon:Number;
  */
 document.addEventListener("DOMContentLoaded", function(event):void 
 { 
-    //document.body.appendChild(component());
 
-    console.log("test hot = " + module.hot);
+    console.log("document loaded");
 
     
     myLogo.src = SimpleLogo;
@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");
-
+    _mediumHolder = document.getElementById('medium-holder');
+    
     addComponents();
 
 
@@ -58,9 +59,12 @@ document.addEventListener("DOMContentLoaded", function(event):void
 function addComponents():void
 {
     let galleryStripModal:GalleryStripModal = new GalleryStripModal();
-    let multimediaGalleryHTML:string = galleryStripModal.getComponentHTML();
-    $(multimediaGalleryHTML).insertAfter('.medium-holder');
+   
+    galleryStripModal.appendComponent(_mediumHolder);
 }
+
+
+
 
 window.addEventListener("resize", windowResize);
 
@@ -89,7 +93,8 @@ function windowScroll()
     // show small logo on navbar on small devices
     if( windowScrollPositon > 150)
     {
-        $(myLogo).appendTo( ".navbar-brand" );
+        
+        
     }
     else
     {

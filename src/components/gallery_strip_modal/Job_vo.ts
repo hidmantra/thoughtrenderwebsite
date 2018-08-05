@@ -8,6 +8,7 @@ export class Job_vo
     private _position:number;
     private _thumbPath:string;
     private _videoPath:string;
+    private _id:number;
     //
     constructor(){
         console.log("Job_vo instantiated");
@@ -15,6 +16,7 @@ export class Job_vo
         this._position = undefined;
         this._thumbPath = undefined;
         this._videoPath = undefined;
+        this._id = undefined;
     }
 
     @JsonMember({type:String})
@@ -51,5 +53,14 @@ export class Job_vo
 
     set videoPath(value:string){
         this._videoPath = value;
+    }
+
+    @JsonMember({type:Number})
+    get id():number{
+        return this._id;
+    }
+
+    set id(value:number){
+        this._id = value;
     }
 }
