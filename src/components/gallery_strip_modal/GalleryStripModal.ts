@@ -1,8 +1,4 @@
 import * as $ from "jquery";
-//const AdenVideoDesktop = require('./video/adendesktop.mp4');
-const AdenVideoDesktop = require('./video/adendesktop.mp4');
-const AdenVideoDesktopLg = require('./video/adendesktoplg.mp4');
-const TmpThumb = require('./images/aden_large_thumb400.jpg');
 import {JsonObject, JsonMember, TypedJSON} from 'typedjson-npm';
 import { GSM_vo } from "./GSM_vo";
 import { Job_vo } from "./Job_vo";
@@ -189,6 +185,7 @@ export class GalleryStripModal
 
     private gsm_vo:GSM_vo = new GSM_vo();
     private thumbWidth:number;
+    private sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
      
 
     constructor()
@@ -210,117 +207,51 @@ export class GalleryStripModal
         this.thumbWidth = this.gsm_vo.thumbWidth;
 
         //create the label for the component
-
         let titleElement:HTMLElement = document.createElement("div");
         titleElement.className = "medium-title";
         titleElement.innerHTML = this.gsm_vo.componentTitle
-        //"<div class='medium-title'>" +this.gsm_vo.componentTitle + "</div>";
         
-        //$(_targetComponent).insertAfter(titleElement);
-       // _targetComponent.innerHTML = titleElement;
         $(titleElement).insertAfter(_targetComponent);
 
         _targetComponent.appendChild(titleElement);
-        // $(_targetComponent).insertAfter(titleElement);
-
-         //_targetComponent.appendChild(titleElement);
-
-        //append compoent id to div id to target current component if their are multiple GSMs
+        
         let holderElement:HTMLElement = document.createElement("div");
         
-        console.log("holderString: " +this.getHtml(holderElement,2));
         holderElement.className="portfolio-medium";
+        //append compoent id to div id to target current component if their are multiple GSMs
         holderElement.innerHTML = "<div id='GSM-" + this.gsm_vo.componentID +"' class='thumb-strip'>";
-        console.log("holderString (after): " +this.getHtml(holderElement,2));
-       
+        
         _targetComponent.appendChild(holderElement);
-        //$(".holder").append(titleElement);
-       holderElement.addEventListener("hello", this.launchAden)
+        
+       holderElement.addEventListener("modalLauncher", this.launchModal)
        
-        //grab Job_vos out and build each thumb and corresponding popup modal data
-        let sortedTmpJobVO:Array<Job_vo> = this.gsm_vo.job_vos.sort(function(obj1, obj2){return obj1.position - obj2.position;})
+        
+        //sort the jobs in order of position
+        this.sortedTmpJobVO = this.gsm_vo.job_vos.sort(function(obj1, obj2){return obj1.position - obj2.position;})
         let thumbsHtml:string = "";
 
         
-        
-        for(let tmpJobVO of sortedTmpJobVO)
+        //add images to stage
+        for(let tmpJobVO of this.sortedTmpJobVO)
         {
-           
-            let event = new Event("hello", {bubbles: true}); // (2)
-            let elem:HTMLElement = document.createElement("a");
-            $(elem).appendTo('')
-            elem.dispatchEvent(event);
-            //let AdenThumb = require(tmpJobVO.thumbPath);
             let tPath:string = tmpJobVO.thumbPath;
-           
-            
-
             let myThumb = new Image();
             myThumb.width = this.thumbWidth;
             myThumb.src = tPath;
             myThumb.className = 'myImage';
-            //let imgTag = document.getElementById('myImage');
-           // console.log("myThumb? > " + myThumb);
-           /* myThumb.addEventListener('click', function(){
-                console.log("youoyo");
-            });
-*/
+           
             myThumb.addEventListener('click', function(){
-                console.log("youoyo");
-                //let event = new CustomEvent("hello", {bubbles: true}); // (2)
-                this.dispatchEvent(new CustomEvent("hello", {
+                this.dispatchEvent(new CustomEvent("modalLauncher", {
                     bubbles:true,
-                    detail:{id: tmpJobVO.id}
+                    detail:{vo: tmpJobVO}
                 }));
-            })
-            //myThumb.addEventListener("click", this.launchAden);
-            //myThumb.addEventListener("click", this.launchAden);
-            holderElement.appendChild(myThumb);
-            
-            let tmpElement:HTMLElement = document.createElement("a");
-            
-            
-            let tmpThumbHTML:string = "<img src='" + tPath + "' width='" + this.thumbWidth +"'></img>";
-           
-            tmpElement.innerHTML = tmpThumbHTML;
-            console.log("image html: " + tmpThumbHTML);
-            //$('#tholder').on('click' , this.launchAden );
+            });
 
-            //$(myThumb).appendTo( tmpElement );
-            $(".thumb-strip").appendTo(tmpElement);
-            
-
-            //let tmt:Array<Node> = $.parseHTML(tmpThumbHTML);
-            //$(tmt).appendTo(tmpElement);
-            
-            thumbsHtml += $(tmpElement).prop('innerHTML');
-           
-
-            let htmlText:string="<video width='600' loop autoplay ><source src='./adendesktop.mp4' type='video/mp4'></video>";
-            $('.modal-body').html(htmlText);
-            
-            
+            holderElement.appendChild(myThumb); 
         }
 
-        let tmpp:HTMLElement = document.createElement('div');
-        
-
         $('img').css('padding', '20px');
-        let trythis:HTMLElement = document.createElement('div');
-       // $('#thumb-strip').css('padding', '20px');
-        let closeString:string = "</div></div></div>";
         
-
-        //tmpp.innerHTML = holderString + thumbsHtml + closeString;
-       
-       // $(tmpp).insertAfter(titleElement);
-        //let strip:string = titleElement + holderElement + thumbsHtml + closeString;
-        
-
-       // let temp:string="hi";
-       // adenThumb.addEventListener("click", function(){ launchAden(temp) });
-        
-        //return strip;
     }
     private getHtml(who:HTMLElement, deep:number){
         if(!who || !who.tagName) return '';
@@ -334,20 +265,15 @@ export class GalleryStripModal
         el= null;
         return txt;
     }
-    private getModalHTML(   modalID:string, 
-                            modalHeading:string,
-                        ):string
+    
+    public launchModal(e:CustomEvent):void
     {
-        //let modalID:string = 
-        let tmpStringHtml1:string;
-        let modalHTML:string ="<div class='modal fade' id='myModal'><div class='modal-dialog modal-lg'><div class='modal-content'><div class='modal-header'><h4 class='modal-title'>Modal Heading</h4><button type='button' class='close' data-dismiss='modal'>&times;</button></div><div id='#test' class='modal-body'></div><div class='modal-footer'><button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button></div></div></div>";
-
-        return modalHTML;
-    }
-
-    public launchAden(e:CustomEvent):void
-    {
-        console.log("tmp is " + e.detail.id );
-        $("#myModal").modal();
+        let tmpJobVo:Job_vo = e.detail.vo as Job_vo;
+        let htmlText:string="<video width='600' loop autoplay ><source src='" + tmpJobVo.videoPath + "' type='video/mp4'></video>";
+        let title:HTMLElement = document.getElementById('modal-title');
+        title.innerHTML = tmpJobVo.jobTitle;
+        $('.modal-body').html(htmlText);
+        $('#myModal').modal('show');
+        
     }
 }
