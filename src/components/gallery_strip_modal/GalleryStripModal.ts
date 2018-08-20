@@ -2,6 +2,7 @@ import * as $ from "jquery";
 import {JsonObject, JsonMember, TypedJSON} from 'typedjson-npm';
 import { GSM_vo } from "./GSM_vo";
 import { Job_vo } from "./Job_vo";
+import { ThumbHolder } from "./ThumbHolder";
 
 export class GalleryStripModal
 {
@@ -14,16 +15,16 @@ export class GalleryStripModal
             {
                 "jobTitle" : "Aden",
                 "id"        : 1,
-                "position" : 1,
+                "position" : 4,
                 "thumbPath" : "gsm_assets/images/aden_large_thumb400.jpg",
-                "videoPath" : "./adendesktop.mp4"
+                "videoPath" : "gsm_assets/video/adendesktop.mp4"
             },
             {
                 "jobTitle" : "Levaquin",
                 "id"        : 2,
                 "position" : 2,
                 "thumbPath" : "gsm_assets/images/levaquin_large_thumb400.jpg",
-                "videoPath" : "./adendesktop2.mp4"
+                "videoPath" : "gsm_assets/video/levaquin650.mp4"
             },
             {
                 "jobTitle" : "Sawaya Segalis 1",
@@ -35,7 +36,7 @@ export class GalleryStripModal
             {
                 "jobTitle" : "Sawaya Segalis 2",
                 "id"        : 4,
-                "position" : 4,
+                "position" : 1,
                 "thumbPath" : "gsm_assets/images/sawaya2_large_thumb400.jpg",
                 "videoPath" : "./adendesktop2.mp4"
             },
@@ -183,9 +184,16 @@ export class GalleryStripModal
         ]
     }
 
-    private gsm_vo:GSM_vo = new GSM_vo();
-    private thumbWidth:number;
-    private sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
+    //
+    private _gsm_vo:GSM_vo = new GSM_vo();
+    private _thumbWidth:number;
+    private _targetComponent:HTMLElement;
+    //private _coverUp:HTMLElement = document.createElement("div");
+    private _coverUp:HTMLElement;
+    /**
+     * An array of Job_vos sorted in order of each position property
+     */
+    private _sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
      
 
     constructor()
@@ -193,50 +201,50 @@ export class GalleryStripModal
         console.log('GSM class built');
     }
 
+    /**
+     * Takes a component and adds the GSM to it.
+     * 
+     * @param targetComponent The component to which the GSM will attached to
+     */
     public appendComponent( targetComponent:HTMLElement ):void
     {
-        let _targetComponent:HTMLElement = targetComponent;
-        
+         this._targetComponent = targetComponent;
+         console.log("targetcompon: "+ this._targetComponent);
         //convert json object into a GSM_vo
-        this.gsm_vo = TypedJSON.parse(TypedJSON.stringify(this.tmpJson) , GSM_vo);
-
-        
+        this._gsm_vo = TypedJSON.parse(TypedJSON.stringify(this.tmpJson) , GSM_vo);
         //first handle data for overall component
 
         //get the width for thumb nails
-        this.thumbWidth = this.gsm_vo.thumbWidth;
+        this._thumbWidth = this._gsm_vo.thumbWidth;
+        
 
         //create the label for the component
         let titleElement:HTMLElement = document.createElement("div");
         titleElement.className = "medium-title";
-        titleElement.innerHTML = this.gsm_vo.componentTitle
-        
-        $(titleElement).insertAfter(_targetComponent);
+        titleElement.innerHTML = this._gsm_vo.componentTitle
+        $(titleElement).insertAfter(this._targetComponent);
 
-        _targetComponent.appendChild(titleElement);
-        
+        this._targetComponent.appendChild(titleElement);
         let holderElement:HTMLElement = document.createElement("div");
         
         holderElement.className="portfolio-medium";
         //append compoent id to div id to target current component if their are multiple GSMs
-        holderElement.innerHTML = "<div id='GSM-" + this.gsm_vo.componentID +"' class='thumb-strip'>";
+        holderElement.innerHTML = "<div id='GSM-" + this._gsm_vo.componentID +"' class='thumb-strip'>";
+        this._targetComponent.appendChild(holderElement);
+        //add listener to holder to catch clicks on image
+        holderElement.addEventListener("modalLauncher", this.launchModal);
         
-        _targetComponent.appendChild(holderElement);
-        
-       holderElement.addEventListener("modalLauncher", this.launchModal)
        
-        
         //sort the jobs in order of position
-        this.sortedTmpJobVO = this.gsm_vo.job_vos.sort(function(obj1, obj2){return obj1.position - obj2.position;})
+        this._sortedTmpJobVO = this._gsm_vo.job_vos.sort(function(obj1, obj2){return obj1.position - obj2.position;})
         let thumbsHtml:string = "";
-
         
         //add images to stage
-        for(let tmpJobVO of this.sortedTmpJobVO)
+        for(let tmpJobVO of this._sortedTmpJobVO)
         {
             let tPath:string = tmpJobVO.thumbPath;
             let myThumb = new Image();
-            myThumb.width = this.thumbWidth;
+            myThumb.width = this._thumbWidth;
             myThumb.src = tPath;
             myThumb.className = 'myImage';
            
@@ -246,13 +254,23 @@ export class GalleryStripModal
                     detail:{vo: tmpJobVO}
                 }));
             });
-
+                
             holderElement.appendChild(myThumb); 
+             
         }
 
+
         $('img').css('padding', '20px');
-        
     }
+
+
+    /**
+     * This is a utility function for turning html elements (and children)
+     * into a string
+     * 
+     * @param who the HTMLElement to parse
+     * @param deep how deep to traverse element
+     */
     private getHtml(who:HTMLElement, deep:number){
         if(!who || !who.tagName) return '';
         var txt, ax, el= document.createElement("div");
@@ -266,14 +284,56 @@ export class GalleryStripModal
         return txt;
     }
     
+   
+    /**
+     * Called when an image is clicked on
+     * it launches a modal window
+     * 
+     * @param e CustomEvent
+     */
     public launchModal(e:CustomEvent):void
     {
         let tmpJobVo:Job_vo = e.detail.vo as Job_vo;
-        let htmlText:string="<video width='600' loop autoplay ><source src='" + tmpJobVo.videoPath + "' type='video/mp4'></video>";
         let title:HTMLElement = document.getElementById('modal-title');
         title.innerHTML = tmpJobVo.jobTitle;
-        $('.modal-body').html(htmlText);
-        $('#myModal').modal('show');
         
+       let tmph = document.createElement("button");
+       
+       $('.medium-holder').append(tmph);
+       let tw:number = 10;
+       this._coverUp = document.createElement("div");
+       this._coverUp.className = "cover-up"
+       this._coverUp.style.position = "fixed";
+       this._coverUp.style.left = "0";
+       this._coverUp.style.top="0";
+       this._coverUp.style.padding="0";
+       this._coverUp.style.margin="0";
+       this._coverUp.style.width = "100%";
+       this._coverUp.style.height = "100%"
+       this._coverUp.style.backgroundColor = 'black';
+       this._coverUp.style.opacity = ".8";
+       
+       $('.medium-holder').append(this._coverUp);
+      
+      $( ".cover-up" ).click(function() {
+        console.log( "Handler for .click() called." );
+        $(".cover-up").remove();
+      });
+
+       let projectTitle = document.createElement("div");
+       projectTitle.style.color = "white";
+       projectTitle.style.paddingTop = "50px"
+       projectTitle.style.paddingLeft = "40px";
+       projectTitle.innerHTML = "<p>" + tmpJobVo.jobTitle + "</p>";
+       this._coverUp.appendChild(projectTitle);
+
+       let videoPlayer = document.createElement("div");
+       videoPlayer.style.paddingLeft = "40px";
+       videoPlayer.style.paddingTop = "20px";
+       let htmlText:string="<video width='600' loop autoplay ><source src='" + tmpJobVo.videoPath + "' type='video/mp4'></video>";
+        videoPlayer.innerHTML = htmlText;
+        this._coverUp.appendChild(videoPlayer);
+
+       
     }
 }

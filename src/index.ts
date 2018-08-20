@@ -18,12 +18,7 @@ const Logo = require('./images/logo_thr_circle.png');
 
 let headerLogo = new Image();
 
-
 let _mediumHolder:HTMLElement;
-
-
-
-
 
 declare var module: any;
 
