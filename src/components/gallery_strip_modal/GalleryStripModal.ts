@@ -315,10 +315,7 @@ export class GalleryStripModal
        
        $('.medium-holder').append(this._coverUp);
       
-      $( ".cover-up" ).click(function() {
-        console.log( "Handler for .click() called." );
-        $(".cover-up").remove();
-      });
+      
 
        let projectTitle = document.createElement("div");
        projectTitle.style.color = "white";
@@ -328,12 +325,22 @@ export class GalleryStripModal
        this._coverUp.appendChild(projectTitle);
 
        let videoPlayer = document.createElement("div");
+       videoPlayer.className = "video-player";
+       videoPlayer.style.position = "fixed";
+       videoPlayer.style.top ="0";
+       videoPlayer.style.left="0";
        videoPlayer.style.paddingLeft = "40px";
-       videoPlayer.style.paddingTop = "20px";
+       videoPlayer.style.paddingTop = "100px";
        let htmlText:string="<video width='600' loop autoplay ><source src='" + tmpJobVo.videoPath + "' type='video/mp4'></video>";
         videoPlayer.innerHTML = htmlText;
-        this._coverUp.appendChild(videoPlayer);
-
+        //this._coverUp.appendChild(videoPlayer);
+        //this._coverUp.appendChild(videoPlayer);
+        $('.medium-holder').append(videoPlayer);
        
+        $( ".cover-up" ).click(function() {
+            console.log( "Handler for .click() called." );
+            $(".cover-up").remove();
+            $(".video-player").remove();
+          });
     }
 }
