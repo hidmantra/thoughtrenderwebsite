@@ -25,12 +25,17 @@
     color: $secondary-color;
    /* background: url('../images/logo_thr_circle.png');*/
 }
-/*
-.main-title{
+
+.p-name.u-url {
+
     font-size: 1.5rem;
-    color: white;
+    font-family: TitleFont;
+
 }
-*/
+
+.achieve {
+    font-size: 1.2;
+}
 
 body {
     background: rgb(197, 199, 224);
