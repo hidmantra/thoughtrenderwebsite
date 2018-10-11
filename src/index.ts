@@ -26,6 +26,7 @@ let element:HTMLElement;
 
 let windowScrollPositon:Number;
 
+
 /**
  * Fires when everything is loaded and ready to GO!
  */
@@ -53,11 +54,34 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
 function addComponents():void
 {
+    let myEvent:CustomEvent = new CustomEvent("modalLauncher", {
+        bubbles:true,
+        detail:{mg: headerLogo.width}
+    })
+    let eventAwesome:CustomEvent = new CustomEvent('awesome', {
+        bubbles: true,
+        detail: {wth: () => myLogo.width }}
+    );
     let galleryStripModal:GalleryStripModal = new GalleryStripModal();
    
     galleryStripModal.appendComponent(_mediumHolder);
+    
+   let screenCovered = ()=>{
+       console.log("bingo");
+       $('.navbar').hide();
+    };
+    let screenUncovered = ()=>{
+        $('.navbar').show();
+    }
+    
+   galleryStripModal.CoverUp.on(screenCovered);
+   galleryStripModal.CoverDown.on(screenUncovered);
 }
 
+function handleM(e:CustomEvent):void
+{
+    console.log("wowzers");
+}
 
 
 
@@ -67,8 +91,6 @@ window.addEventListener("scroll", windowScroll);
 
 function windowResize()
 {
-    //console.log("window width: " + window.innerWidth);
-    //console.log("window height: " + window.innerHeight);
     
     if(window.innerWidth < 420)
     {
@@ -111,4 +133,3 @@ if (module.hot) {
        })
 }
 */
-     
