@@ -19,7 +19,7 @@ export class GalleryStripModal
                 "id"        : 1,
                 "position" : 4,
                 "thumbPath" : "gsm_assets/images/aden_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/adendesktop_456w.mp4",
+                "filePath" : "gsm_assets/video/adendesktop_456w.mp4",
                 "description" : "I designed and executed this concept for a thrilled client. The shadow at the bottom of the cubes is an example of how sometimes the 'icing' really makes the cake. Clicking one of the items that came out of the cubes took the user to various static pages."
             },
             {
@@ -27,15 +27,15 @@ export class GalleryStripModal
                 "id"        : 2,
                 "position" : 2,
                 "thumbPath" : "gsm_assets/images/levaquin_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/levaquin_456w.mp4",
-                "description" : "I came up with the concept for this interface, the 'cards' were designed by my team. The use of color vs. black and white not only brought out the selected item but it helped allot with performance!"
+                "filePath" : "gsm_assets/video/levaquin_456w.mp4",
+                "description" : "I came up with the concept for this interface, the 'cards' were designed by my team. The use of color vs. black and white not only brought out the selected item but it helped a lot with performance!"
             },
             {
                 "jobTitle" : "Sawaya Segalis 1",
                 "id"        : 3,
                 "position" : 3,
                 "thumbPath" : "gsm_assets/images/sawaya1_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/sawayasegalas1_456w.mp4",
+                "filePath" : "gsm_assets/video/sawayasegalas1_456w.mp4",
                 "description" : "I came up with the concept for this interface that helped our team win an Adobe Site of the Day award. With screen realistate being scarse I don't show the current selection in the navigation."
             },
             {
@@ -43,7 +43,7 @@ export class GalleryStripModal
                 "id"        : 4,
                 "position" : 1,
                 "thumbPath" : "gsm_assets/images/sawaya2_large_thumb400.jpg",
-                "videoPath" : "./gsm_assets/video/sawayasegalas2_456w.mp4",
+                "filePath" : "./gsm_assets/video/sawayasegalas2_456w.mp4",
                 "description" : "I came up with the concept for this interface that helped our team win an Adobe Site of the Day award. Again, I remove the selected item from the navigation. The 'Latest News' blurbs were data driven"
             },
             {
@@ -51,7 +51,7 @@ export class GalleryStripModal
                 "id"        : 5,
                 "position" : 5,
                 "thumbPath" : "gsm_assets/images/gofur_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/gofur_456w.mp4",
+                "filePath" : "gsm_assets/video/gofur_456w.mp4",
                 "description" : "I came up with the concept for this game that our team did a great job designing. I executed all of the programming which also included a leader board in which high scorers could enter in their name."
             },
             {
@@ -59,7 +59,7 @@ export class GalleryStripModal
                 "id"        : 6,
                 "position" : 6,
                 "thumbPath" : "gsm_assets/images/pantene1_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/pantene1_456w.mp4",
+                "filePath" : "gsm_assets/video/pantene1_456w.mp4",
                 "description" : "I designed this screensaver which had hundreds of thousands of impressions and thousands of downloads. The elements in the mandala resized and repostioned based on mouse movement and location."
             },
             {
@@ -67,7 +67,7 @@ export class GalleryStripModal
                 "id"        : 7,
                 "position" : 7,
                 "thumbPath" : "gsm_assets/images/evian1_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/evian1_456w.mp4",
+                "filePath" : "gsm_assets/video/evian1_456w.mp4",
                 "description" : "I supported a very talented designer by coming up with animation that match the feel that we were looking to express."
             },
             {
@@ -75,7 +75,7 @@ export class GalleryStripModal
                 "id"        : 8,
                 "position" : 8,
                 "thumbPath" : "gsm_assets/images/moma_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/moma_456w.mp4",
+                "filePath" : "gsm_assets/video/moma_456w.mp4",
                 "description" : "This page was featured on the MOMA's website to corelate with a car show that they were presenting. I came up with all design and animation elements."
             },
             {
@@ -83,7 +83,7 @@ export class GalleryStripModal
                 "id"        : 9,
                 "position" : 9,
                 "thumbPath" : "gsm_assets/images/evian2_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/evian2_456w.mp4",
+                "filePath" : "gsm_assets/video/evian2_456w.mp4",
                 "description" : "I animated this project following the design and direction from the project's art director."
             },
             {
@@ -91,7 +91,7 @@ export class GalleryStripModal
                 "id"        : 10,
                 "position" : 10,
                 "thumbPath" : "gsm_assets/images/kohls_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/kohls_456w.mp4",
+                "filePath" : "gsm_assets/video/kohls_456w.mp4",
                 "description" : "I was responsible for animating the elements that the design team had put together."
             },
             {
@@ -99,7 +99,7 @@ export class GalleryStripModal
                 "id"        : 11,
                 "position" : 11,
                 "thumbPath" : "gsm_assets/images/nortel1_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/nortel1_456w.mp4",
+                "filePath" : "gsm_assets/video/nortel1_456w.mp4",
                 "description" : "This was my design and execution which led to our team securing Nortel Networks as contracted client."
             },
             {
@@ -107,7 +107,7 @@ export class GalleryStripModal
                 "id"        : 12,
                 "position" : 12,
                 "thumbPath" : "gsm_assets/images/pantene2_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/pantene2_456w.mp4",
+                "filePath" : "gsm_assets/video/pantene2_456w.mp4",
                 "description" : "I came up the color transitions and animations to liven up an already great design by my art director."
             },
             {
@@ -115,7 +115,7 @@ export class GalleryStripModal
                 "id"        : 13,
                 "position" : 13,
                 "thumbPath" : "gsm_assets/images/nortel2_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/nortel2_456w.mp4",
+                "filePath" : "gsm_assets/video/nortel2_456w.mp4",
                 "description" : "This was my design and execution which led to our team securing Nortel Networks as contracted client."
             },
             {
@@ -123,7 +123,7 @@ export class GalleryStripModal
                 "id"        : 14,
                 "position" : 14,
                 "thumbPath" : "gsm_assets/images/trump1_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/trump1_456w.mp4",
+                "filePath" : "gsm_assets/video/trump1_456w.mp4",
                 "description" : "I came up with transitions and animations to support our design team."
             },
             {
@@ -131,7 +131,7 @@ export class GalleryStripModal
                 "id"        : 15,
                 "position" : 15,
                 "thumbPath" : "gsm_assets/images/trump2_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/trump2_456w.mp4",
+                "filePath" : "gsm_assets/video/trump2_456w.mp4",
                 "description" : "I came up with transitions and animations to support our design team."
             },
             {
@@ -139,7 +139,7 @@ export class GalleryStripModal
                 "id"        : 16,
                 "position" : 16,
                 "thumbPath" : "gsm_assets/images/synnex_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/synnex_456w.mp4",
+                "filePath" : "gsm_assets/video/synnex_456w.mp4",
                 "description" : "I created this splash screen as opener for one of our clients sales CDs"
             },
             {
@@ -147,7 +147,7 @@ export class GalleryStripModal
                 "id"        : 17,
                 "position" : 17,
                 "thumbPath" : "gsm_assets/images/plavix_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/plavix_456w.mp4",
+                "filePath" : "gsm_assets/video/plavix_456w.mp4",
                 "description" : "I worked with the design team by creating interfaces that were simple despite the complexity of this sales tool."
             },
             {
@@ -155,7 +155,7 @@ export class GalleryStripModal
                 "id"        : 18,
                 "position" : 18,
                 "thumbPath" : "gsm_assets/images/sawaya3_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/sawayasegalas3_456w.mp4",
+                "filePath" : "gsm_assets/video/sawayasegalas3_456w.mp4",
                 "description" : "I came up with the concept for this interface that helped our team win an Adobe Site of the Day award. All of the data in this interactive chart was dynamically populated from one of the client's databases"
             },
             {
@@ -163,7 +163,7 @@ export class GalleryStripModal
                 "id"        : 19,
                 "position" : 19,
                 "thumbPath" : "gsm_assets/images/hpv1_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/hpv1_456w.mp4",
+                "filePath" : "gsm_assets/video/hpv1_456w.mp4",
                 "description" : "I created the layout, animations, and video handling to best display the clips out A/V department passed on to us."
             },
             {
@@ -171,7 +171,7 @@ export class GalleryStripModal
                 "id"        : 20,
                 "position" : 20,
                 "thumbPath" : "gsm_assets/images/hpv2_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/hpv2_456w.mp4",
+                "filePath" : "gsm_assets/video/hpv2_456w.mp4",
                 "description" : "I created the layout, animations, and video handling to best display the clips out A/V department passed on to us."
             },
             {
@@ -179,7 +179,7 @@ export class GalleryStripModal
                 "id"        : 21,
                 "position" : 21,
                 "thumbPath" : "gsm_assets/images/carestream_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/carestream_456w.mp4",
+                "filePath" : "gsm_assets/video/carestream_456w.mp4",
                 "description" : "I created this simple, data-driven video player that ended up living all over the clients site for years. Partly due to how simple I made editing the content."
             },
             {
@@ -187,7 +187,7 @@ export class GalleryStripModal
                 "id"        : 22,
                 "position" : 22,
                 "thumbPath" : "gsm_assets/images/gts_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/gts_456w.mp4",
+                "filePath" : "gsm_assets/video/gts_456w.mp4",
                 "description" : "I designed and executed this advertising unit."
             },
             {
@@ -195,7 +195,7 @@ export class GalleryStripModal
                 "id"        : 23,
                 "position" : 23,
                 "thumbPath" : "gsm_assets/images/dlj_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/dlj_456w.mp4",
+                "filePath" : "gsm_assets/video/dlj_456w.mp4",
                 "description" : "I designed and executed this advertising unit. The white area benith the banner was actually transparent so that you could see the parent page's content which would be dramatically covered up when the banner slid opened."
             },
             {
@@ -203,7 +203,7 @@ export class GalleryStripModal
                 "id"        : 24,
                 "position" : 24,
                 "thumbPath" : "gsm_assets/images/eisai_large_thumb400.jpg",
-                "videoPath" : "gsm_assets/video/eisai_456w.mp4",
+                "filePath" : "gsm_assets/video/eisai_456w.mp4",
                 "description" : "I still can't believe they went with 'that' look for the buttons! The client used this tool by loading up copies on several kiosks at trade shows."
             }
             
@@ -400,7 +400,7 @@ export class GalleryStripModal
        videoPlayer.style.left="0";
        videoPlayer.style.paddingLeft = "40px";
        videoPlayer.style.paddingTop = "100px";
-       let htmlText:string="<video width='600' loop autoplay ><source src='" + tmpJobVo.videoPath + "' type='video/mp4'></video>";
+       let htmlText:string="<video width='600' loop autoplay ><source src='" + tmpJobVo.filePath + "' type='video/mp4'></video>";
         videoPlayer.innerHTML = htmlText;
         $('.medium-holder').append(videoPlayer);
 

@@ -7,7 +7,7 @@ export class Job_vo
     private _jobTitle:string;
     private _position:number;
     private _thumbPath:string;
-    private _videoPath:string;
+    private _filePath:string;
     private _id:number;
     private _description:string;
     //
@@ -16,7 +16,7 @@ export class Job_vo
         this._jobTitle = undefined;
         this._position = undefined;
         this._thumbPath = undefined;
-        this._videoPath = undefined;
+        this._filePath = undefined;
         this._id = undefined;
         this._description = undefined;
     }
@@ -49,12 +49,12 @@ export class Job_vo
     }
 
     @JsonMember({type:String})
-    get videoPath():string{
-        return this._videoPath
+    get filePath():string{
+        return this._filePath
     }
 
-    set videoPath(value:string){
-        this._videoPath = value;
+    set filePath(value:string){
+        this._filePath = value;
     }
 
     @JsonMember({type:Number})
