@@ -3,7 +3,6 @@ import {JsonObject, JsonMember, TypedJSON} from 'typedjson-npm';
 import { GSM_vo } from "./GSM_vo";
 import { Job_vo } from "./Job_vo";
 import { ThumbHolder } from "./ThumbHolder";
-import {ScreenCoverEvent} from "./ScreenCoverEvent";
 import { EventEmitter } from "events";
 
 export class GalleryStripModal
@@ -36,7 +35,7 @@ export class GalleryStripModal
                 "position" : 3,
                 "thumbPath" : "gsm_assets/images/sawaya1_large_thumb400.jpg",
                 "filePath" : "gsm_assets/video/sawayasegalas1_456w.mp4",
-                "description" : "I came up with the concept for this interface that helped our team win an Adobe Site of the Day award. With screen realistate being scarse I don't show the current selection in the navigation."
+                "description" : "I came up with the concept for this interface that helped our team win an Adobe Site of the Day award. With screen real estate being scarse I don't show the current selection in the navigation."
             },
             {
                 "jobTitle" : "Sawaya Segalis 2",
@@ -164,7 +163,7 @@ export class GalleryStripModal
                 "position" : 19,
                 "thumbPath" : "gsm_assets/images/hpv1_large_thumb400.jpg",
                 "filePath" : "gsm_assets/video/hpv1_456w.mp4",
-                "description" : "I created the layout, animations, and video handling to best display the clips out A/V department passed on to us."
+                "description" : "I created the layout, animations, and video handling to best display the clips our A/V department passed on to us."
             },
             {
                 "jobTitle" : "HPV 2",
@@ -172,7 +171,7 @@ export class GalleryStripModal
                 "position" : 20,
                 "thumbPath" : "gsm_assets/images/hpv2_large_thumb400.jpg",
                 "filePath" : "gsm_assets/video/hpv2_456w.mp4",
-                "description" : "I created the layout, animations, and video handling to best display the clips out A/V department passed on to us."
+                "description" : "I created the layout, animations, and video handling to best display the clips our A/V department passed on to us."
             },
             {
                 "jobTitle" : "Carestream",
@@ -196,7 +195,7 @@ export class GalleryStripModal
                 "position" : 23,
                 "thumbPath" : "gsm_assets/images/dlj_large_thumb400.jpg",
                 "filePath" : "gsm_assets/video/dlj_456w.mp4",
-                "description" : "I designed and executed this advertising unit. The white area benith the banner was actually transparent so that you could see the parent page's content which would be dramatically covered up when the banner slid opened."
+                "description" : "I designed and executed this advertising unit. The white area beneath the banner was actually transparent so that you could see the parent page's content which would be dramatically covered up when the banner slid opened."
             },
             {
                 "jobTitle" : "EISAI",
