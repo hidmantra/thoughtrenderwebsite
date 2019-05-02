@@ -1,5 +1,5 @@
-//import * as webpack from 'webpack';
-const webpack = require('webpack');
+import * as webpack from 'webpack';
+//const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");

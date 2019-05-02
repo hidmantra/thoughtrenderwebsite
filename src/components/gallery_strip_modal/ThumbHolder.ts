@@ -10,9 +10,9 @@ export class ThumbHolder extends HTMLElement
     constructor (){
         super();
         //const vo:Job_vo = this.getAttribute('data-vo');
-        //this._job_vo = undefined;
+        this.job_vo = new Job_vo();
         
-        this._thumbWidth = undefined
+        this._thumbWidth = NaN;
         this._thumbPath = this.job_vo.thumbPath;
         let myThumb = new Image();
         myThumb.width = this._thumbWidth;

@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
     $(headerLogo).appendTo("#logo-holder");
     $('.main-title').html("Thought Render");
-    _mediumHolder = document.getElementById('medium-holder');
+    _mediumHolder = document.getElementById('medium-holder')!;
     
     addComponents();
 
@@ -106,9 +106,10 @@ function windowResize()
 
 function windowScroll()
 {
-    windowScrollPositon = $(window).scrollTop();
+    let windowScrollPositon = $(window).scrollTop();
     // show small logo on navbar on small devices
-    if( windowScrollPositon > 150)
+    if (windowScrollPositon){
+        if( windowScrollPositon > 150)
     {
         
         
@@ -120,6 +121,8 @@ function windowScroll()
             $(myLogo).detach();
         }
     }
+    }
+    
 }
 
 

@@ -1,7 +1,8 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -10,19 +11,26 @@ module.exports = merge(common, {
     contentBase: './dist',
     hot: true
   },
-  module: 
-    {
-        rules: 
-        [
-            {
-                test: /\.css$/, 
-                use: 
-                ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                  }))
-              }
-          ]
-      }
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: (resourcePath, context) => {
+                // publicPath is the relative path of the resource to the context
+                // e.g. for ./css/admin/main.css the publicPath will be ../../
+                // while for ./css/main.css the publicPath will be ../
+                return path.relative(path.dirname(resourcePath), context) + '/';
+              },
+            },
+          },
+          'css-loader',
+        ],
+      },
+    ],
+  },
   
 });

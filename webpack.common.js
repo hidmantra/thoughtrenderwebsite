@@ -1,7 +1,6 @@
-const webpack = require('webpack');
+var webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-//const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -13,7 +12,9 @@ module.exports =
     entry:[ './src/index.ts', './src/styles/style.scss' ],
     output: 
     {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, './src/'),
+      //path: path.resolve(__dirname, 'dist'),
+
       filename: '[name].bundle.js',
       publicPath: ''
     },
@@ -44,32 +45,43 @@ module.exports =
                 ] 
                 */
             },
+            /*
             {
                 test: /\.tsx?$/,
                 //use: 'ts-loader',
                 use: 'awesome-typescript-loader',
                 exclude: /node_modules/
             },
+            */
             {
                 
                 test: /\.(sass|scss)$/,
                 use: 
                 [
-                    MiniCssExtractPlugin.loader,
                     {
-                        loader: "css-loader",
+                    loader: MiniCssExtractPlugin.loader,
+                    
                         options: 
                         {
                             includePaths: ["./src/styles/style.scss"],
-                            sourceMap: true,
-                            importLoader: 2
+                            //sourceMap: true,
+                            importLoader: 2,
+                            // only enable hot in development
+              hmr: process.env.NODE_ENV === 'development',
+              // if hmr does not work, this is a forceful method.
+              reloadAll: true,
                         }
                     },
-                    "postcss-loader",
+                    "css-loader",
+                    //"postcss-loader",
                     "sass-loader"
                 ]
                 
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+              },
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader']

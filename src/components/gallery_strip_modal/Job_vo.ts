@@ -1,32 +1,44 @@
-import { JsonObject, JsonMember } from "typedjson-npm";
+
+import { JsonObject, JsonMember } from "./../../../node_modules/typedjson-npm/js/typed-json";
 import 'reflect-metadata';
+import { stringify } from "querystring";
+import { IJob_vo } from './Job_vo';
 
-
-export class Job_vo
+export interface IJob_vo
 {
+    //readonly thumbPath?: string;
+}
+
+
+export class Job_vo implements IJob_vo
+{
+
+    private _thumbPath:string ;
+    private _id:number;
+    private _description:string ;
+    private _filePath:string;
     private _jobTitle:string;
     private _position:number;
-    private _thumbPath:string;
-    private _filePath:string;
-    private _id:number;
-    private _description:string;
-    //
+
     constructor(){
+        this.thumbPath = "hi";
+        this._thumbPath = "ERROR: missing path to thumb image";
+        this._id = NaN;
+        this._description = "ERROR: missing description";
+        this._filePath = "ERROR: missing path to video file" ;
+        this._jobTitle = "ERROR: missing job title";
+        this._position = NaN;
         console.log("Job_vo instantiated");
-        this._jobTitle = undefined;
-        this._position = undefined;
-        this._thumbPath = undefined;
-        this._filePath = undefined;
-        this._id = undefined;
-        this._description = undefined;
+
     }
 
+    
     @JsonMember({type:String})
-    get jobTitle():string{
+    public get jobTitle():string{
         return this._jobTitle;
     }
 
-    set jobTitle(value:string){
+    public set jobTitle(value:string){
         this._jobTitle = value;
     }
 
@@ -45,33 +57,33 @@ export class Job_vo
     }
 
     set thumbPath(value:string){
-        this.thumbPath = value;
+        this._thumbPath = value;
     }
 
     @JsonMember({type:String})
-    get filePath():string{
+    public get filePath():string{
         return this._filePath
     }
 
-    set filePath(value:string){
+    public set filePath(value:string){
         this._filePath = value;
     }
 
     @JsonMember({type:Number})
-    get id():number{
+    public get id():number{
         return this._id;
     }
 
-    set id(value:number){
+    public set id(value:number){
         this._id = value;
     }
 
     @JsonMember({type:String})
-    get description():string{
+    public  get description():string{
         return this._description;
     }
 
-    set description(value:string){
+    public set description(value:string){
         this._description = value;
     }
 }

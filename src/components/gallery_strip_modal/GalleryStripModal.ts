@@ -220,13 +220,17 @@ export class GalleryStripModal
     /**
      * An array of Job_vos sorted in order of each position property
      */
-    private _sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
+  private _sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
+  //private _sortedTmpJobVO:Array<Job_vo>;
+    //private _sortedTmpJobVO:[];
     private readonly onCoverUp = new LiteEvent<void>();
     private readonly onCoverDown = new LiteEvent<void>();
     
 
     constructor()
     {
+        //this._sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
+       // this._sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
         console.log('GSM class built');
         this._coverUp = document.createElement("div");
         this._tester = new EventEmitter();
