@@ -214,7 +214,6 @@ export class GalleryStripModal
     private _thumbWidth:number;
     private _targetComponent:HTMLElement;
     public _tester:EventEmitter;
-    //private _coverUp:HTMLElement = document.createElement("div");
     public _coverUp:HTMLElement //= new HTMLElement();
     public isScreenCovered:boolean = false;
     /**
