@@ -1,0 +1,41 @@
+/* Tablet */
+@include media-breakpoint-up(sm) 
+{
+    .main-title{
+        padding-top: 30px;
+        padding-left: auto;
+        padding-right: auto;
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-family: TitleFont;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        padding-top: 80px;
+    }
+
+    .technology-title {
+        font-size: 1.5rem;
+        font-style: italic;
+        color: white;
+    }
+
+    .nav-item {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .nav-item:last-child {
+        padding-right: 0;
+        padding-left: 10px;
+    }
+
+    .medium-title {
+        font-size: 1.2rem;
+    }
+
+    #technology-table {
+        height: 400px;;
+    }
+}
