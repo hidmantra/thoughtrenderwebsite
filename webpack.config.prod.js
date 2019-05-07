@@ -1,6 +1,6 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack/index.js');
-const common = require('./webpack.common.js');
+const common = require('./webpack.config.common.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 

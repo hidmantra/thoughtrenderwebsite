@@ -1,15 +1,10 @@
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const common = require('./webpack.config.common.js');
 
 const path = require('path');
 module.exports = merge(common,
 {
     "mode": "development",
-    /*"entry": "src/index.js",
-    "output": {
-        "path": __dirname+'/static',
-        "filename": "[name].[chunkhash:8].js"
-    },*/
     "devtool": "source-map",
     "devServer": {
         "contentBase": './dist',
