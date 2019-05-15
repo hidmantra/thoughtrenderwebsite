@@ -9,22 +9,21 @@ import "bootstrap";
 import { GalleryStripModal } from "./components/gallery_strip_modal/GalleryStripModal";
 
 
-
+/**
+ * The TR basic logo that appears on header bar when header is collapsed
+ */
 const SimpleLogo = require('./images/THR-white.png');
-
 let myLogo = new Image();
 
+/**
+ * The full circular Thought Render logo
+ */
 const Logo = require('./images/logo_thr_circle.png');
-
 let headerLogo = new Image();
 
 let _mediumHolder:HTMLElement;
+let firstRun:boolean = true;
 
-declare var module: any;
-
-let element:HTMLElement;
-
-let windowScrollPositon:Number;
 
 
 /**
@@ -38,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event):void
     
     myLogo.src = SimpleLogo;
     myLogo.width = 50;
+    
 
     
     headerLogo.src = Logo;
@@ -48,20 +48,14 @@ document.addEventListener("DOMContentLoaded", function(event):void
     _mediumHolder = document.getElementById('medium-holder')!;
     
     addComponents();
-
-
 });
 
+/**
+ *  Add components to the DOM
+ */
 function addComponents():void
 {
-    let myEvent:CustomEvent = new CustomEvent("modalLauncher", {
-        bubbles:true,
-        detail:{mg: headerLogo.width}
-    })
-    let eventAwesome:CustomEvent = new CustomEvent('awesome', {
-        bubbles: true,
-        detail: {wth: () => myLogo.width }}
-    );
+   
     let galleryStripModal:GalleryStripModal = new GalleryStripModal();
    
     galleryStripModal.appendComponent(_mediumHolder);
@@ -78,10 +72,6 @@ function addComponents():void
    galleryStripModal.CoverDown.on(screenUncovered);
 }
 
-function handleM(e:CustomEvent):void
-{
-    console.log("wowzers");
-}
 
 
 
@@ -89,9 +79,12 @@ window.addEventListener("resize", windowResize);
 
 window.addEventListener("scroll", windowScroll);
 
+/**
+ * Called when the user resizes the window
+ */
 function windowResize()
 {
-    
+    //adjust logo size based on screen width
     if(window.innerWidth < 420)
     {
         myLogo.width = 40;
@@ -103,7 +96,9 @@ function windowResize()
     
 }
 
-
+/**
+ * Called when the user scrolls
+ */
 function windowScroll()
 {
     let windowScrollPositon = $(window).scrollTop();
@@ -111,14 +106,26 @@ function windowScroll()
     if (windowScrollPositon){
         if( windowScrollPositon > 150)
     {
-        
+        if($(myLogo))
+        {
+            if(firstRun)
+            {
+                $(myLogo).appendTo("#simple-logo-holder");
+                firstRun = false;
+            }
+            $(myLogo).show("slow")
+        }
+        else
+        {
+            
+        }
         
     }
     else
-    {
+    {   // if the header is visible then the small logo shouldn't show
         if($(myLogo))
         {
-            $(myLogo).detach();
+            $(myLogo).hide("slow");
         }
     }
     }

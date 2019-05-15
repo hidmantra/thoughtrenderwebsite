@@ -219,9 +219,8 @@ export class GalleryStripModal
     /**
      * An array of Job_vos sorted in order of each position property
      */
-  private _sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
-  //private _sortedTmpJobVO:Array<Job_vo>;
-    //private _sortedTmpJobVO:[];
+    private _sortedTmpJobVO:Array<Job_vo> = new Array<Job_vo>();
+ 
     private readonly onCoverUp = new LiteEvent<void>();
     private readonly onCoverDown = new LiteEvent<void>();
     
@@ -356,8 +355,7 @@ export class GalleryStripModal
             this.isScreenCovered = true;
             classRef.onCoverUp.trigger();
         }
-        //() => {console.log("try");this.onCoverUp.trigger();};
-        //let tmpJobVo:Job_vo = e.detail.vo as Job_vo;
+        
         let tmpJobVo:Job_vo = e.detail.dt.vo as Job_vo;
 
         let title:HTMLElement = document.getElementById('modal-title');
@@ -380,9 +378,7 @@ export class GalleryStripModal
        this._coverUp.style.backgroundColor = 'black';
        this._coverUp.style.opacity = ".8";
        this._coverUp.style.overflow = "hidden";
-       //this._coverUp.dispatchEvent(new Event("coverOn"));
-       //this._coverUp.dispatchEvent(new ScreenCoverEvent("coverOn"));
-       //ScreenCoverEvent.
+       
        
        $('.medium-holder').append(this._coverUp);
       

@@ -83,6 +83,11 @@ section {
     display: inline-block;
 }
 
+#simple-logo-holder {
+    position: absolute;
+    left: 20px;
+}
+
 .list-group{
     max-height: 300px;
     overflow:scroll;
