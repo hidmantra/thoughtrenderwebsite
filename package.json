@@ -71,7 +71,7 @@
     "@types/webpack-hot-middleware": "^2.16.5",
     "acorn": "^6.1.1",
     "enhanced-resolve": "^4.1.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "postcss-import": "^12.0.1",
     "save-dev": "^2.0.0",
     "simple-node-logger": "^18.12.22",
