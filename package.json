@@ -39,7 +39,7 @@
     "jquery": "^3.4.0",
     "mini-css-extract-plugin": "^0.6.0",
     "nativescript-dev-webpack": "^0.21.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "popper.js": "^1.15.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-loader": "^3.0.0",
